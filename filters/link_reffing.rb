@@ -1,5 +1,5 @@
 class Link_reffing < Nanoc3::Filter
-  identifier :linkreffing
+  identifier :link_reffing
   
   UNITS = ['&#8304;', '&#185;', '&#178;', '&#179;', '&#8308;', '&#8309;', '&#8310;', '&#8311;', '&#8312;', '&#8313;']
   
