@@ -32,16 +32,20 @@ class Link_reffing < Nanoc3::Filter
           \]\]        # closing square brackets
         /x 
     
-    replacement = content.gsub( r, &blk ) + '\n'
-    replacement + format_links(links) unless links.empty?
+    if r.match content
+      replacement = content.gsub( r, &blk ) + "\n"
+      replacement + format_links(links) unless links.empty?
+    else
+      content
+    end
     
   end
   
   def format_links( links )
-    text = "********\n"
+    text = "********"
     cur = 0
     links.each do |lnk|
-      text += %Q!<a name="#{cur}"></a>[#{cur}] [#{lnk.first[0,45]}](#{lnk.first} "#{lnk.first}") #{lnk.last}\n\n!
+      text += %Q!\n<a name="#{cur}"></a>[#{cur}] [#{lnk.first[0,45]}](#{lnk.first} "#{lnk.first}") #{lnk.last}\n\n!
       cur += 1
     end
     text + "- - -"
