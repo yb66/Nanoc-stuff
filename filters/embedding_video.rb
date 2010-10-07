@@ -1,6 +1,8 @@
 class Embedding_video < Nanoc3::Filter
   identifier :embedding_video
   
+  #the {::nomarkdown} are for kramdown filtering. Bluecloth and kramdown were screwing up the html. I'll change the way this works later, but for now they stay.
+  
   SITES = {
 #     "video.google".to_sym => ['http://www.video.google.com/',->(w,h,url){ %Q!! }],
 #     :brightcove => ['http://www.brightcove.com/',->(w,h,url){ %Q!! }],
