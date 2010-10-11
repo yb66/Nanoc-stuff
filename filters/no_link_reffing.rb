@@ -4,7 +4,7 @@ class No_link_reffing < Nanoc3::Filter
   def run(content, params={})
     
     r = /             # [[link|description]]
-          \[(?:embed)?\[        # opening square brackets
+          \[(?:\w+)?\[        # opening square brackets
             \S+     # link
               \|      # separator
             ([^\[]+)  # description
